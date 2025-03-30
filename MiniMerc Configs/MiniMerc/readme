@@ -1,0 +1,2 @@
+## This is where you will add/edit your printers configs. In the printer.cfg file you will see [include MiniMerc/*.cfg], this will automatically include all .cfg files in this folder. 
+## It is best to keep config files separate to easily navigate to the things you want to change without having to scroll and search for what you want.
