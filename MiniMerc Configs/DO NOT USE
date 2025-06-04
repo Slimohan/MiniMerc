@@ -1,0 +1,87 @@
+# Driver6
+[stepper_y]
+step_pin: PG4               #PE2
+dir_pin: !PC1               #!PE3
+enable_pin: !PA0            #!PD4
+microsteps: 16
+rotation_distance: 40
+full_steps_per_rotation: 200
+endstop_pin: PG13
+position_endstop: 181
+position_max: 181
+position_min: -10
+homing_speed: 80
+
+[tmc2209 stepper_y]
+uart_pin: PC7                #PE1
+interpolate: true
+run_current: 1.5
+sense_resistor: 0.110
+stealthchop_threshold: 0
+
+# Stepper X (B Motor) Left
+# Connected to Motor 6
+# Endstop connected to EBB36
+
+# Driver7
+[stepper_x]
+step_pin: PF9                #PE6
+dir_pin: !PF10               #!PA14
+enable_pin: !PG2             #!PE0
+microsteps: 16
+rotation_distance: 40
+full_steps_per_rotation: 200
+endstop_pin: PG14            #EBBCan:PB6
+position_endstop: 185
+position_max: 185
+position_min: -10
+homing_speed: 80
+
+[tmc2209 stepper_x]
+uart_pin: PF2                #PD3
+interpolate: true
+run_current: 1.5
+sense_resistor: 0.110
+stealthchop_threshold: 0
+
+
+
+[extruder]
+step_pin: PC13              #EBBCan: PD0
+dir_pin: PF0                #EBBCan: PD1
+enable_pin: !PF1            #!EBBCan: PD2
+microsteps: 16
+rotation_distance: 23.009
+gear_ratio: 5:1
+full_steps_per_rotation: 200
+nozzle_diameter: 0.500
+filament_diameter: 1.750
+max_extrude_cross_section: 4
+heater_pin: PB11            #EBBCan: PB13
+sensor_type: PT1000
+sensor_pin: PF6             #EBBCan: PA3
+control: pid
+pid_Kp: 21.673
+pid_Ki: 5.121
+pid_Kd: 23.123
+min_temp: 0
+max_temp: 350
+
+[tmc2209 extruder]
+uart_pin: PE4               #EBBCan: PA15
+run_current: 0.350
+stealthchop_threshold: 0
+sense_resistor: 0.110
+
+# Hotend Fan
+[heater_fan hotend_fan]
+pin: PD12                   #EBBCan: PA0
+heater: extruder
+heater_temp: 50.0
+
+#sensor_type:MAX31865
+#sensor_pin: EBBCan: PA4
+#spi_bus: spi1
+#rtd_nominal_r: 100
+#rtd_reference_r: 430
+#rtd_num_of_wires: 2
