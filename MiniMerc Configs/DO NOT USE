@@ -85,3 +85,29 @@ heater_temp: 50.0
 #rtd_nominal_r: 100
 #rtd_reference_r: 430
 #rtd_num_of_wires: 2
+
+
+
+1. cd ~/klipper
+
+2. lsusb
+
+## Make sure board is in DFU mode.
+
+3. make menuconfig
+
+## Input parameters from BTT GitHub.
+
+4. Use WinSCP to navigate to the firmware file (klipper.bin) and change it to firmware.bin
+
+5. sudo dfu-util -a 0 -D ~/klipper/out/firmware.bin --dfuse-address 0x08000000:force:mass-erase:leave -d 0483:df11
+
+## Use the above command to flash the firmware to the board. Make sure the 8 digit port number at the end is correct.
+
+6. ls -l /dev/serial/by-id/
+
+## Use the above command to get the device serial ID, example below.
+
+usb-Klipper_stm32g0b1xx_34002A000F504B5735313720-if00
+
+usb-Klipper_stm32g0b1xx_2300120008504D4D35383820-if00
